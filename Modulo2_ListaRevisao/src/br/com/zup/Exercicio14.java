@@ -55,41 +55,40 @@ e não permite inserir um aluno com o email repetido.
                 }
 
 
-//        for (String chaveAluno : alunos.keySet()) {
-//            System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
-//
+                for (String chaveAluno : alunos.keySet()) {
+                    System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
+                }
+
 //            for (String verificarEmail : alunos.keySet()) {
 //                if (verificarEmail.equals(emailAluno)) {
 //                    System.out.println("Este e-mail já foi cadastrado.");
 //                } else {
 //                    alunos.put(emailAluno, nomeAluno + ", " + telefoneAluno);
-//                    System.out.println("E-mail cadastrado com sucesso.");
 //                }
 //            }
-//        }
-        break;
+                break;
 
-        case 2:
-        System.out.println("Qual alunx deseja apagar? Informe o e-mail delx: ");
-        emailAluno = leitor.next();
-        System.out.println("Aluno deletado com sucesso.");
-        alunos.remove(emailAluno);
-        for (String chaveAluno : alunos.keySet()) {
-            System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
+            case 2:
+                System.out.println("Qual alunx deseja apagar? Informe o e-mail delx: ");
+                emailAluno = leitor.next();
+                System.out.println("Aluno deletado com sucesso.");
+                alunos.remove(emailAluno);
+                for (String chaveAluno : alunos.keySet()) {
+                    System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
+                }
+                break;
+
+            case 3:
+                for (String chaveAluno : alunos.keySet()) {
+                    System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
+                }
+                break;
+
+            default:
+                System.out.println("Digite uma opção válida.");
+                break;
         }
-        break;
 
-        case 3:
-        for (String chaveAluno : alunos.keySet()) {
-            System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
-        }
-        break;
 
-        default:
-        System.out.println("Digite uma opção válida.");
-        break;
     }
-
-
-}
 }
