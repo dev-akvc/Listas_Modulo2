@@ -20,15 +20,15 @@ Entrega Máxima: O Sistema permite excluir um aluno usando como parâmetro o ema
 e não permite inserir um aluno com o email repetido.
  */
 //        Instanciando Scanner
-        Scanner leitor = new Scanner (System.in);
-        Map<String,String> alunos = new HashMap<String,String>();
+        Scanner leitor = new Scanner(System.in);
+        Map<String, String> alunos = new HashMap<String, String>();
         int numeroDeAlunos, opcaoEscolhida;
-        String nomeAlunoETelefone, emailAluno;
+        String nomeAluno = null, telefoneAluno = null, emailAluno = null;
 
 //        Lista inicial
-        alunos.put("ka@email","Karol, 11 1111-1111");
-        alunos.put("dog@email","Dog, 22 2222-2222");
-        alunos.put("pug@email","Pug, 33 3333-3333");
+        alunos.put("ka@email", "Karol, 11 1111-1111");
+        alunos.put("dog@email", "Dog, 22 2222-2222");
+        alunos.put("pug@email", "Pug, 33 3333-3333");
 
 //        Menu inicial
         System.out.println("Digite a opção desejada: ");
@@ -37,43 +37,59 @@ e não permite inserir um aluno com o email repetido.
         System.out.println("3 - Imprimir a lista");
         opcaoEscolhida = leitor.nextInt();
 
-        switch (opcaoEscolhida){
+        switch (opcaoEscolhida) {
             case 1:
                 System.out.println("Quer adicionar quantos alunxs? ");
                 numeroDeAlunos = leitor.nextInt();
 
                 for (int i = 1; i <= numeroDeAlunos; i++) {
-                    System.out.println("Informe o e-mail do " +i+ "º alunx: ");
+                    System.out.println("Informe o e-mail do " + i + "º alunx: ");
                     emailAluno = leitor.next();
                     leitor.hasNextLine();
-                    System.out.println("Informe o nome e telefone do " +i+ "º alunx, separados por ; : ");
-                    nomeAlunoETelefone = leitor.next();
-                    alunos.put(emailAluno, nomeAlunoETelefone);
+                    System.out.println("Informe o nome do " + i + "º alunx: ");
+                    nomeAluno = leitor.next();
+                    System.out.println("Informe o telefone do " + i + "º alunx: ");
+                    telefoneAluno = leitor.next();
+                    alunos.put(emailAluno, nomeAluno + ", " + telefoneAluno);
                     leitor.hasNextLine();
                 }
-                System.out.println("Lista atualizada: " +alunos);
-                break;
 
-            case 2:
-                System.out.println("Qual alunx deseja apagar? Informe o e-mail delx: ");
-                emailAluno = leitor.next ();
-                alunos.remove(emailAluno);
-                System.out.println("Lista atualizada: " +alunos);
-                break;
 
-            case 3:
-                System.out.println("A lista de alunxs é: " +alunos);
-                break;
+//        for (String chaveAluno : alunos.keySet()) {
+//            System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
+//
+//            for (String verificarEmail : alunos.keySet()) {
+//                if (verificarEmail.equals(emailAluno)) {
+//                    System.out.println("Este e-mail já foi cadastrado.");
+//                } else {
+//                    alunos.put(emailAluno, nomeAluno + ", " + telefoneAluno);
+//                    System.out.println("E-mail cadastrado com sucesso.");
+//                }
+//            }
+//        }
+        break;
+
+        case 2:
+        System.out.println("Qual alunx deseja apagar? Informe o e-mail delx: ");
+        emailAluno = leitor.next();
+        System.out.println("Aluno deletado com sucesso.");
+        alunos.remove(emailAluno);
+        for (String chaveAluno : alunos.keySet()) {
+            System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
         }
+        break;
 
+        case 3:
+        for (String chaveAluno : alunos.keySet()) {
+            System.out.println("Aluno: " + alunos.get(chaveAluno) + " E-mail: " + chaveAluno);
+        }
+        break;
 
-
-
-
-
-
-
-
-
+        default:
+        System.out.println("Digite uma opção válida.");
+        break;
     }
+
+
+}
 }
